@@ -1,0 +1,33 @@
+.header {
+	border-bottom: 1px solid #efeff1;
+	.notification-bell {
+		sup {
+			position: absolute;
+			width: 18px;
+			height: 18px;
+			top: -6px;
+			right: -4px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			@apply bg-red-500 text-white rounded-[50%];
+		}
+	}
+	.user-info {
+		&::before {
+			content: "";
+			position: absolute;
+			left: -24px;
+			top: 0;
+			bottom: 0;
+			width: 1px;
+			height: 100%;
+			border: 1px solid #efeff1;
+		}
+		.user-profile {
+			max-width: 48px;
+			height: 48px;
+			border-radius: 50%;
+		}
+	}
+}

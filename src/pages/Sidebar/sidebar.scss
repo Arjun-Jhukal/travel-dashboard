@@ -1,0 +1,138 @@
+.expand-sidebar {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	border: 1px solid #efeff1;
+	transition: all 0.1s linear;
+}
+
+.sidebar {
+	animation: collapse 1s ease-in-out forwards;
+
+	.menu-blocks {
+		padding: 0 12px;
+
+		.menu-block {
+			> span {
+				font-size: 14px;
+				line-height: 17px;
+				display: inline-block;
+				margin-bottom: 8px;
+			}
+			ul {
+				li {
+					a,
+					button {
+						font-size: 18px;
+						line-height: 22px;
+						padding: 12px;
+						border-radius: 4px;
+						width: 100%;
+
+						&:hover,
+						&.active {
+							background: #f4f6f8;
+							font-weight: 500;
+						}
+					}
+
+					&:not(:last-child) {
+						margin-bottom: 8px;
+					}
+					&.menu-has-children {
+						> a,
+						> button {
+							position: relative;
+							width: 100%;
+
+							&::before {
+								content: "";
+								width: 14px;
+								height: 8px;
+								background: url(/angle-down.svg) no-repeat center/contain;
+								position: absolute;
+								top: 50%;
+								transform: translateY(-50%);
+								right: 12px;
+							}
+						}
+						ul {
+							li {
+								a {
+									display: block;
+									width: 100%;
+									padding-left: 44px;
+								}
+							}
+						}
+					}
+
+					.dropdown-menu {
+						display: grid;
+						grid-template-rows: 0fr;
+						overflow: hidden;
+						transition: all 0.3s ease-in-out;
+
+						.sub-menu {
+							overflow: hidden;
+						}
+
+						&.expand {
+							grid-template-rows: 1fr;
+						}
+					}
+				}
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 40px;
+			}
+		}
+	}
+
+	&.collapse-sidebar {
+		max-width: 88px;
+
+		.sidebar-header {
+			.sidebar-logo {
+				display: none;
+			}
+		}
+		.expand-sidebar {
+			transform: rotateY(180deg);
+		}
+		.menu-block {
+			ul {
+				li {
+					text-align: center;
+					button {
+						max-width: fit-content;
+						margin: 0 auto;
+
+						&::before {
+							display: none;
+						}
+						*:not(img) {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	&:not(.collapse-sidebar) {
+		min-width: 320px;
+	}
+}
+
+@keyframes collapse {
+	from {
+		max-width: 320px;
+	}
+	to {
+		max-width: 88px;
+	}
+}
