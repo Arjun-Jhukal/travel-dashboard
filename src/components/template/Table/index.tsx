@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-table";
 
 interface DynamicTableProps<T> {
-	columns: ColumnDef<T, any>[];
+	columns: ColumnDef<T, unknown>[];
 	data: T[];
 }
 
