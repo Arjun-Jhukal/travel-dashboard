@@ -67,6 +67,12 @@ table {
 		background: #f3f6f9;
 		font-weight: 600;
 		line-height: 19px;
+		&:first-child {
+			border-radius: 8px 0 0 8px;
+		}
+		&:last-child {
+			border-radius: 0 8px 8px 0;
+		}
 	}
 	td,
 	th {
@@ -74,5 +80,28 @@ table {
 	}
 	td {
 		border-bottom: 1px solid #f3f6f9;
+	}
+}
+
+.profit-loss-status {
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17px;
+
+	&.profit {
+		background: #0080001a;
+		border: 1px solid #008000;
+	}
+	&.loss {
+		background: #cd00001a;
+		border: 1px solid #cd0000;
+		svg {
+			transform: rotate(90deg);
+			path {
+				fill: #cd0000;
+			}
+		}
 	}
 }

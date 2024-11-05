@@ -12,6 +12,18 @@
 .sidebar {
 	animation: collapse 1s ease-in-out forwards;
 
+	&::-webkit-scrollbar {
+		width: 4px;
+		background-color: #efeff1;
+	}
+	&::-webkit-scrollbar-track {
+		width: 100%;
+		background-color: #efeff1;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		@apply bg-blue-600;
+	}
 	.menu-blocks {
 		padding: 0 12px;
 
@@ -94,7 +106,7 @@
 	}
 
 	&.collapse-sidebar {
-		max-width: 88px;
+		max-width: 90px;
 
 		.sidebar-header {
 			.sidebar-logo {
@@ -133,6 +145,6 @@
 		max-width: 320px;
 	}
 	to {
-		max-width: 88px;
+		max-width: 90px;
 	}
 }

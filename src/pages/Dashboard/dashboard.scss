@@ -1,0 +1,18 @@
+.card-wrapper {
+	margin-bottom: 32px;
+	.card {
+		border-radius: 8px;
+		background: #ffffff;
+		border: 1px solid #efeff1;
+		padding: 24px;
+
+		.card-icon {
+			border: 1px solid #efeff1;
+			width: 32px;
+			height: 32px;
+			display: grid;
+			place-items: center;
+			border-radius: 4px;
+		}
+	}
+}

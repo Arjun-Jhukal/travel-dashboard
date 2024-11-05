@@ -28,10 +28,10 @@ export default function Sidebar() {
 
 	return (
 		<div
-			className={`sidebar bg-white border-[1px] border-border border-solid min-h-screen ${
+			className={`sidebar bg-white border-[1px] border-border border-solid max-h-screen overflow-auto ${
 				!expandSidebar ? "" : "collapse-sidebar"
 			}`}>
-			<div className="sidebar-header flex justify-between items-center  px-4 py-6 mb-5 border-b-[1px] border-border border-solid">
+			<div className="sidebar-header flex justify-between items-center  px-4 py-6 mb-5 border-b-[1px] border-border border-solid sticky top-0 bg-white z-10">
 				<div className="sidebar-logo">
 					<Link to="/">
 						<img src="/logo.svg" alt="Logo" className="img-fluid" />
