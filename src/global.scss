@@ -31,6 +31,12 @@ h3 {
 	line-height: 22px;
 }
 
+h4 {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 19px;
+}
+
 .sm-text {
 	font-size: 14px;
 	line-height: 17px;
@@ -65,7 +71,7 @@ select {
 	}
 
 	&::placeholder {
-		opacity: 0.3;
+		opacity: 0.7;
 	}
 }
 select,
@@ -119,6 +125,10 @@ table {
 	@apply border-primary text-primary;
 }
 
+.btn-text {
+	@apply text-primary;
+	font-weight: 700;
+}
 .profit-loss-status {
 	padding: 6px 12px;
 	border-radius: 4px;
@@ -150,5 +160,89 @@ table {
 
 	&::first-letter {
 		text-transform: uppercase;
+	}
+}
+
+.content-area {
+	> .content {
+		max-height: calc(100vh - 90px);
+		overflow: auto;
+	}
+}
+
+.input-field {
+	label {
+		margin-bottom: 8px;
+		display: block;
+	}
+	&:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}
+
+.itinerary-block {
+	&:not(:last-child) {
+		margin-bottom: 32px;
+	}
+}
+
+.add-attraction {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+}
+
+.remove-attraction {
+	width: 22px;
+	height: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 1px solid #000000;
+	position: absolute;
+	top: -11px;
+	right: -11px;
+	@apply bg-white;
+}
+
+.tour-add-form {
+	ul {
+		li {
+			&.active {
+				button {
+					@apply bg-primary text-white;
+				}
+			}
+		}
+	}
+}
+
+.attraction-item {
+	cursor: pointer;
+
+	&.selected {
+		.add-attraction {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.attraction-wrapper {
+	&::-webkit-scrollbar {
+		width: 4px;
+		background-color: #efeff1;
+	}
+	&::-webkit-scrollbar-track {
+		width: 100%;
+		background-color: #efeff1;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		@apply bg-blue-600;
 	}
 }
