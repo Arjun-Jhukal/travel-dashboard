@@ -3,12 +3,16 @@ import DynamicTable from "../../components/template/Table";
 import { Link } from "react-router-dom";
 import "./dashboard.scss";
 import ProfitLossStatus from "../../components/molecules/Status/Gain";
+import TourStatus, {
+	TourStatusEnum,
+	TourStatusProps,
+} from "../../components/molecules/Status/Tour-Status";
 
 type TripData = {
 	SN: number | string;
 	trip: string;
 	totalPaid: number;
-	status: string;
+	status: TourStatusEnum;
 	createdAt: string;
 };
 export enum Overall {
@@ -20,7 +24,14 @@ const tripColumns: ColumnDef<TripData>[] = [
 	{ accessorKey: "SN", header: "SN" },
 	{ accessorKey: "trip", header: "Trip" },
 	{ accessorKey: "totalPaid", header: "Total Paid" },
-	{ accessorKey: "status", header: "Status" },
+	{
+		accessorKey: "status",
+		header: "Status",
+		cell: ({ row }) => {
+			// Pass the status to TourStatus component
+			return <TourStatus status={row.original.status} />;
+		},
+	},
 	{ accessorKey: "createdAt", header: "Created At" },
 	{
 		accessorKey: "actions",
@@ -40,14 +51,21 @@ const tripData: TripData[] = [
 		SN: "#1",
 		trip: "Trip to Nepal",
 		totalPaid: 500,
-		status: "Completed",
+		status: TourStatusEnum.PROCESSING,
 		createdAt: "2024-10-01",
 	},
 	{
 		SN: "#2",
 		trip: "Trip to Japan",
 		totalPaid: 1200,
-		status: "Pending",
+		status: TourStatusEnum.PUBLISHED,
+		createdAt: "2024-10-05",
+	},
+	{
+		SN: "#3",
+		trip: "Trip to Japan",
+		totalPaid: 1200,
+		status: TourStatusEnum.REJECTED,
 		createdAt: "2024-10-05",
 	},
 ];

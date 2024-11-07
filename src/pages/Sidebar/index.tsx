@@ -111,7 +111,7 @@ export default function Sidebar() {
 								onClick={() => {
 									!expandSidebar
 										? setTour((prev) => !prev)
-										: navigate(PATH.DASHBOARD.ROOT);
+										: navigate(PATH.TOUR.ALL_TOURS.ROOT);
 								}}>
 								<img src="/tours.svg" alt="Tours" />
 								<span>Tours</span>
@@ -119,10 +119,10 @@ export default function Sidebar() {
 							<div className={`dropdown-menu ${tour ? "expand" : ""}`}>
 								<ul className="sub-menu">
 									<li>
-										<Link to="/dashboard">All Tours</Link>
+										<Link to="/tour/all-tours">All Tours</Link>
 									</li>
 									<li>
-										<Link to="/dashboard">Add Tour</Link>
+										<Link to="/tour/add-tour">Add Tour</Link>
 									</li>
 									<li>
 										<Link to="/dashboard">Categories</Link>
