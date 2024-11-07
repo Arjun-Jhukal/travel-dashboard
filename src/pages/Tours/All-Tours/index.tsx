@@ -1,6 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DynamicTable from "../../../components/template/Table";
 import TourStatus, {
 	TourStatusEnum,
@@ -163,16 +162,16 @@ const bookColumns: ColumnDef<BookData>[] = [
 	},
 ];
 export default function AllTours() {
-	const [selectedRows, setSelectedRows] = React.useState<number[]>([]);
+	// const [selectedRows, setSelectedRows] = React.useState<number[]>([]);
 
 	// Handler to track selected rows and highlight them
-	const handleRowSelect = (rowId: number, isSelected: boolean) => {
-		setSelectedRows((prevSelected) =>
-			isSelected
-				? [...prevSelected, rowId]
-				: prevSelected.filter((id) => id !== rowId),
-		);
-	};
+	// const handleRowSelect = (rowId: number, isSelected: boolean) => {
+	// 	setSelectedRows((prevSelected) =>
+	// 		isSelected
+	// 			? [...prevSelected, rowId]
+	// 			: prevSelected.filter((id) => id !== rowId),
+	// 	);
+	// };
 	return (
 		<>
 			<div className="all-tour-admin-section bg-white rounded-[8px] p-8 mb-4">
@@ -280,7 +279,6 @@ export default function AllTours() {
 						columns={bookColumns}
 						data={bookData.map((row) => ({
 							...row,
-							isSelected: selectedRows.includes(row.id),
 						}))}
 					/>
 				</div>

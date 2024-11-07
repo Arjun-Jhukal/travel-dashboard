@@ -5,7 +5,6 @@ import "./dashboard.scss";
 import ProfitLossStatus from "../../components/molecules/Status/Gain";
 import TourStatus, {
 	TourStatusEnum,
-	TourStatusProps,
 } from "../../components/molecules/Status/Tour-Status";
 
 type TripData = {
