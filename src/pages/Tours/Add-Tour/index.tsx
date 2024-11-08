@@ -58,7 +58,7 @@ export default function AddTour() {
 							</div>
 
 							<div className="mb-8 itinerary-wrapper">
-								{Array.from({ length: itinerary }).map((item, index) => (
+								{Array.from({ length: itinerary }).map((_, index) => (
 									<div className="itinerary-block" key={index.toString()}>
 										<div className="input-field">
 											<label>Title</label>
